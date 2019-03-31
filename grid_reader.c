@@ -5,6 +5,10 @@
 #include <stdio.h>
 void grid_reader_read(grid_t grid, char* path){
 	FILE *in = fopen(path, "r");
+	if (in==NULL){
+		printf("Błąd: nie udało się otworzyć pliku o ścieżce: %s\n", path);
+		exit(1);
+	}
 	int n=0;
 	int a=0;
 	char c;
