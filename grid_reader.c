@@ -28,6 +28,10 @@ void grid_reader_read(grid_t grid, char* path){
 			ln++;
 			ll=0;
 		}
+		else if (ln>grid->height+1){
+			printf("Błąd: zbyt wiele linii w pliku. Plik powinien zawierać %d linii\n",grid->height+1);
+			exit(1);
+		}
 		else if (ll>=grid->width){
 			printf("Błąd: linia %d jest zbyt długa\n",ln);
 			exit(1);
