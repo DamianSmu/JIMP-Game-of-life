@@ -1,8 +1,13 @@
+#include "grid.h"
+#include "grid_reader.h"
+#include "grid_text_writer.h"
+#include "grid_png_writer.h"
+#include "simulate.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
-
+#include <string.h>
 
 
 int main (int argc, char **argv)
@@ -105,6 +110,29 @@ int main (int argc, char **argv)
             printf ("%s ", argv[optind++]);
         putchar ('\n');
         exit(0);
+    }
+
+    grid_t grid = malloc(sizeof(grid_t));
+
+    grid_reader_read(grid, path);
+    for (int i = 0; i < generations; i++) {
+       	grid_t next_grid = simulate_next_gen(grid);	
+        grid = next_grid;
+	if ((i+1)%outstep==0){
+	        char buf1[256];
+		char buf2[256];
+		sprintf(buf1,"%d",i+1);
+		strcpy(buf2, outpath);
+		strcat(buf2, buf1);
+		if (outtext==1){
+			char buf3[256];
+			strcpy(buf3,buf2);
+			strcat(buf3,".txt");
+			grid_text_writer_write(buf3, grid->height,grid->width,grid->cells);
+		}
+		strcat(buf2,".png");
+		grid_png_writer_generate(buf2, grid->height,grid->width,grid->cells);
+	}
     }
 
     exit (0);

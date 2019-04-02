@@ -1,7 +1,7 @@
 #include "grid.h"
-#include "grid.c"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 grid_t simulate_next_gen(grid_t grid)
 {
