@@ -15,3 +15,8 @@ test_grid_text_writer: test_grid_text_writer.o grid_text_writer.o
 
 test_grid_png_writer: test_grid_png_writer.o grid_png_writer.o
 	$(CC) -o test_grid_png_writer test_grid_png_writer.o grid_png_writer.o -lpng
+
+.PHONY: clean
+
+clean:
+	-rm *.o

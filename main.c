@@ -116,26 +116,22 @@ int main (int argc, char **argv)
 
     grid_reader_read(grid, path);
     for (int i = 0; i < generations; i++) {
-       	grid_t next_grid = simulate_next_gen(grid);	
+       	grid_t next_grid = simulate_next_gen(grid);
         grid = next_grid;
 	if ((i+1)%outstep==0){
-	        char buf1[256];
-		char buf2[256];
-		sprintf(buf1,"%d",i+1);
-		strcpy(buf2, outpath);
-		strcat(buf2, buf1);
+	        char buf[256];
+		sprintf(buf,"%s%d",outpath,i+1);
 		if (outtext==1){
-			char buf3[256];
-			strcpy(buf3,buf2);
-			strcat(buf3,".txt");
-			grid_text_writer_write(buf3, grid->height,grid->width,grid->cells);
+			char buf2[256];
+			strcpy(buf2,buf);
+			strcat(buf2,".txt");
+			grid_text_writer_write(buf2, grid->height,grid->width,grid->cells);
 		}
-		strcat(buf2,".png");
-		grid_png_writer_generate(buf2, grid->height,grid->width,grid->cells);
+		strcat(buf,".png");
+		grid_png_writer_generate(buf, grid->height,grid->width,grid->cells);
 	}
     }
 
-    exit (0);
-
+    return 0;
 }
 

@@ -44,3 +44,4 @@ grid_t simulate_next_gen(grid_t grid)
     }
     return new_grid;
 }
+
