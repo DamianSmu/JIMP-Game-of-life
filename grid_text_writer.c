@@ -13,4 +13,5 @@ void grid_text_writer_write (char* path,int height, int width, int* cells){
 			fprintf(out,"%d",cells[i*width+j]);
 		fprintf(out,"\n");
 	}
+	fclose(out);
 }
