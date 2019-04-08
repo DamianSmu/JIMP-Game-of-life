@@ -112,9 +112,8 @@ int main (int argc, char **argv)
         exit(0);
     }
 
-    grid_t grid = malloc(sizeof(grid_t));
 
-    grid_reader_read(grid, path);
+    grid_t grid = grid_reader_read( path);
     for (int i = 0; i < generations; i++) {
        	grid_t next_grid = simulate_next_gen(grid);
         grid = next_grid;

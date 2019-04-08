@@ -4,8 +4,7 @@
 #include <stdlib.h>
 
 int main (){
-	grid_t grid = malloc(sizeof *grid);
-	grid_reader_read(grid, "dane.txt");
+	grid_t grid = grid_reader_read("dane.txt");
 	printf("h=%d\n",grid->height);
 	printf("w=%d\n",grid->width);
 	for (int i=0;i<grid->height;i++){

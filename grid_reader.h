@@ -1,4 +1,4 @@
 #ifndef GRID_READER_H
 #define GRID_READER_H
-void grid_reader_read (grid_t grid, char* path);
+grid_t grid_reader_read ( char* path);
 #endif
