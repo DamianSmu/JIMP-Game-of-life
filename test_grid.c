@@ -18,7 +18,7 @@ int main (){
 	}
 	for (int i=0;i<h;i++){
 		for (int j=0;j<w;j++){
-			if (grid->cells[i*h+j]!=cells[i*h+j]){
+			if (grid->cells[i*w+j]!=cells[i*w+j]){
 				printf("Test nieudany\n");
 				return 1;
 				}

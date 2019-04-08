@@ -7,19 +7,36 @@ int main(){
 	grid_t grid = malloc (sizeof *grid);
 	grid->height = 5;
 	grid->width = 5;
+	int h=grid->height;
+	int w=grid->width;
 	int cells[25]={0,0,0,0,0,
 		       0,0,1,0,0,
 		       0,0,1,0,0,
 		       0,0,1,0,0,
 		       0,0,0,0,0};
+	int expected_cells[25]= {0,0,0,0,0,
+		      		 0,0,0,0,0,
+		       		 0,1,1,1,0,
+		       		 0,0,0,0,0,
+		     		 0,0,0,0,0};
 	grid->cells=cells;
-	grid = simulate_next_gen(grid);
-	printf("h=%d\n",grid->height);
-	printf("w=%d\n",grid->width);
-	for (int i=0;i<grid->height;i++){
-		for (int j=0;j<grid->width;j++)
-			printf("%d ",grid->cells[i*grid->width+j]);
-		printf("\n");
+	grid_t next_grid = simulate_next_gen(grid);
+	if (next_grid->height != h){
+		return 1;
+		printf("Test nieudany\n");
 	}
+	if (next_grid->width != w){
+		return 1;
+		printf("Test nieudany\n");
+	}
+	for (int i=0;i<h;i++){
+		for (int j=0;j<w;j++){
+			if (next_grid->cells[i*w+j]!=expected_cells[i*w+j]){
+				printf("Test nieudany\n");
+				return 1;
+				}
+		}
+	}
+	printf("Test udany\n");
 	return 0;
 }
