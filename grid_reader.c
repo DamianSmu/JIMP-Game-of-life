@@ -47,6 +47,8 @@ grid_t grid_reader_read( char* path){
 			exit(1);
 		}
 	}
-	return grid_create(h,w,cells);
-		
+	grid_t grid = grid_create(h,w,cells);
+	free(cells);
+	fclose(in);
+	return grid;
 }

@@ -10,3 +10,8 @@ grid_t grid_create(int h, int w, int* cells){
 	memcpy(grid->cells, cells, grid->height*grid->width*sizeof*cells);
 	return grid;
 }
+
+void grid_free (grid_t grid){
+	free(grid->cells);
+	free(grid);
+}

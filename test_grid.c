@@ -25,5 +25,6 @@ int main (){
 		}
 	}
 	printf("Test udany\n");
+	grid_free(grid);
 	return 0;
 }

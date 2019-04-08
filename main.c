@@ -125,11 +125,12 @@ int main (int argc, char **argv)
 			strcpy(buf2,buf);
 			strcat(buf2,".txt");
 			grid_text_writer_write(buf2, grid->height,grid->width,grid->cells);
-		}
+			}	
 		strcat(buf,".png");
 		grid_png_writer_generate(buf, grid->height,grid->width,grid->cells);
-	}
+		}
     }
+	grid_free(grid);
 
     return 0;
 }

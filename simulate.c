@@ -38,6 +38,7 @@ grid_t simulate_next_gen(grid_t grid)
                 new_cells[i*w+j] = ((neighbours == 3) ? ALIVE : DEAD);
         }
     }
+	grid_free(grid);
     return new_grid;
 }
 

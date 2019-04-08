@@ -76,6 +76,7 @@ void grid_png_writer_generate(char* path, int height, int width, int* cells) {
   for (y=0; y<height; y++)
     free(row_pointers[y]);
   free(row_pointers);
+  png_destroy_write_struct(&png_ptr, &info_ptr);
 
   fclose(fp);
 }
