@@ -37,9 +37,10 @@ void grid_png_writer_generate(char* path, int height, int width, int* cells) {
   }
 
   FILE *fp = fopen(path, "wb");
-  if (!fp)
-    printf("[write_png_file] File %s could not be opened for writing", path);
-
+  if (fp==NULL){
+    printf("Błąd: nie udało się utworzyć pliku o ścieżce: %s\n", path);
+    exit(1);
+  }
   png_ptr = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
 
   if (!png_ptr)
