@@ -1,8 +1,8 @@
 life: main.o grid.o grid_reader.o simulate.o grid_text_writer.o grid_png_writer.o
 	$(CC) -o life main.o grid.o grid_reader.o simulate.o grid_text_writer.o grid_png_writer.o -lpng
 
-test_simulate: simulate.o grid.o
-	$(CC) -o test_simulate simulate.o grid.o
+test_simulate: test_simulate.o simulate.o grid.o
+	$(CC) -o test_simulate test_simulate.o simulate.o grid.o
 
 test_grid: test_grid.o grid.o
 	$(CC) -o test_grid test_grid.o grid.o

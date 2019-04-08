@@ -5,11 +5,13 @@
 
 int main(){
 	grid_t grid = malloc (sizeof *grid);
-	grid->height = 3;
+	grid->height = 5;
 	grid->width = 5;
-	int cells[15]={0,1,1,0,0,
-		       0,0,0,1,1,
-		       1,1,1,1,1};
+	int cells[25]={0,0,0,0,0,
+		       0,0,1,0,0,
+		       0,0,1,0,0,
+		       0,0,1,0,0,
+		       0,0,0,0,0};
 	grid->cells=cells;
 	grid = simulate_next_gen(grid);
 	printf("h=%d\n",grid->height);

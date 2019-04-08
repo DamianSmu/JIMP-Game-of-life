@@ -11,13 +11,9 @@ grid_t simulate_next_gen(grid_t grid)
     int h = grid -> height;
     int w = grid -> width;
     int* cells = grid -> cells;
-    int* new_cells = malloc(sizeof(int)*h*w);
-    memcpy(new_cells, cells, sizeof(int)*h*w);
-    grid_t new_grid = malloc(sizeof(grid_t));
+    grid_t new_grid = grid_create(h, w, cells);
 
-    new_grid -> cells = new_cells;
-    new_grid -> width = w;
-    new_grid -> height = h;
+    int* new_cells = new_grid->cells;
 
 
     for (int i = 0; i < h;  i++)
