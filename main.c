@@ -9,7 +9,6 @@
 #include <getopt.h>
 #include <string.h>
 
-
 int main (int argc, char **argv)
 {
 
@@ -30,40 +29,29 @@ int main (int argc, char **argv)
                         {"outtext",    no_argument, 0, 't'},
                         {0, 0, 0, 0}
                 };
-
         int option_index = 0;
         int getopt_ret;
         getopt_ret = getopt_long (argc, argv, "p:g:s:o:t",
                          long_options, &option_index);
-
-        if (getopt_ret == -1)
-        {
+        if (getopt_ret == -1) {
             int missing_arg = 0;
-            if(path == NULL)
-            {
+            if(path == NULL) {
                 printf("Wymagany argument: --path\n");
                 missing_arg = 1;
             }
-            if(generations == -1)
-            {
+            if(generations == -1) {
                 printf("Wymagany  argument: --generations\n");
                 missing_arg = 1;
             }
-
             if(missing_arg == 1)
                 exit(0);
-
             break;
         }
-
-        switch (getopt_ret)
-        {
-
+        switch (getopt_ret) {
             case 'p':
                 printf ("Parametr --path przyjal wartosc `%s'\n", optarg);
                 path = optarg;
                 break;
-
             case 'g':
                 printf ("Parametr --generations przyjal wartosc `%s'\n", optarg);
                 char *endptrg;
@@ -73,7 +61,6 @@ int main (int argc, char **argv)
                     exit(0);
                 }
                 break;
-
             case 's':
                 printf ("Parametr --outstep przyjal wartosc `%s'\n", optarg);
                 char *endptrs;
@@ -83,34 +70,27 @@ int main (int argc, char **argv)
                     exit(0);
                 }
                 break;
-
             case 'o':
                 printf ("Parametr --outpath przyjal wartosc `%s'\n", optarg);
                 outpath = optarg;
                 break;
-
             case 't':
                 puts ("Parametr --outtext przyjal wartosc 'true'\n");
                 outtext = 1;
                 break;
-
             case '?':
                 break;
-
             default:
                 abort ();
         }
     }
-
-    if (optind < argc)
-    {
+    if (optind < argc) {
         printf ("Nieobslugiwane argumenty: ");
         while (optind < argc)
             printf ("%s ", argv[optind++]);
         putchar ('\n');
         exit(0);
     }
-
 
     grid_t grid = grid_reader_read( path);
     for (int i = 0; i < generations; i++) {
@@ -130,7 +110,5 @@ int main (int argc, char **argv)
 		}
     }
 	grid_free(grid);
-
     return 0;
 }
-
