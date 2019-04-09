@@ -60,12 +60,12 @@ int main (int argc, char **argv)
         {
 
             case 'p':
-                printf ("option --path with value `%s'\n", optarg);
+                printf ("Parametr --path przyjal wartosc `%s'\n", optarg);
                 path = optarg;
                 break;
 
             case 'g':
-                printf ("option --generations with value `%s'\n", optarg);
+                printf ("Parametr --generations przyjal wartosc `%s'\n", optarg);
                 char *endptrg;
                 generations = strtol (optarg, &endptrg, 10);
                 if (*endptrg) {
@@ -75,7 +75,7 @@ int main (int argc, char **argv)
                 break;
 
             case 's':
-                printf ("option --outstep with value `%s'\n", optarg);
+                printf ("Parametr --outstep przyjal wartosc `%s'\n", optarg);
                 char *endptrs;
                 outstep = strtol (optarg, &endptrs, 10);
                 if (*endptrs) {
@@ -85,12 +85,12 @@ int main (int argc, char **argv)
                 break;
 
             case 'o':
-                printf ("option --outpath with value `%s'\n", optarg);
+                printf ("Parametr --outpath przyjal wartosc `%s'\n", optarg);
                 outpath = optarg;
                 break;
 
             case 't':
-                puts ("option --outtext\n");
+                puts ("Parametr --outtext przyjal wartosc 'true'\n");
                 outtext = 1;
                 break;
 
@@ -102,7 +102,6 @@ int main (int argc, char **argv)
         }
     }
 
-    /* Print any remaining command line arguments (not options). */
     if (optind < argc)
     {
         printf ("Nieobslugiwane argumenty: ");
