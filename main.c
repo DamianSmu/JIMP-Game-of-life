@@ -40,7 +40,7 @@ int main (int argc, char **argv)
                 missing_arg = 1;
             }
             if(generations == -1) {
-                printf("Wymagany  argument: --generations\n");
+                printf("Wymagany argument: --generations\n");
                 missing_arg = 1;
             }
             if(missing_arg == 1)
